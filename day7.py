@@ -4,6 +4,9 @@ if __name__ == "__main__":
 
     arr = []
     nums = ""
+    
+    print("Type end when you are done inputting times.")
+
     while nums != "end":
         nums = input("Enter times entered then left: ")
         if nums == "end":
@@ -30,56 +33,25 @@ if __name__ == "__main__":
             maxTime = j[1]
         totalTime = int(maxTime) - int(minTime)
     
-    #for k in range(0, len(newArr)):
-     #   for p in range(k):
-      #      if p == (len(newArr) - 1):
-       #         if int(newArr[len(newArr) - 1][0]) < int(newArr[p][0]):
-        #            temp = newArr[p]
-         #           newArr[p] = newArr[len(lenArr) - 1]
-          #          newArr[len(newArr) - 1] = temp
-           #     break    
-
-            #if int(newArr[p][0]) > int(newArr[p + 1][0]):
-             #   temp = newArr[p]
-              #  newArr[p] = newArr[p + 1]
-               # newArr[p + 1] = temp
-    
-   #         if int(newArr[p][0]) == int(newArr[p + 1][0]):
-    #            if int(newArr[p][1]) > int(newArr[p + 1][1]):
-     #               temp = newArr[p]
-      #              newArr[p] = newArr[p + 1]
-       #             newArr[p + 1] = temp
 
     print(newArr)
-    print(maxTime + " maxTime")
-    print(minTime + " minTime")
     
-    newNewArr = []
-    print(arr)
-    for x in range(0, len(arr)):
-        if not newNewArr:
-            newNewArr.append(newArr[x])
-            print(newNewArr)
-            continue
-        print(newNewArr)
-        position = x
-        if int(newArr[x][0]) > int(newArr[x - 1][0]):
-            newNewArr.append(newArr[x])
-        elif int(newArr[x][0]) == int(newArr[x - 1][0]):
-            if int(newArr[x][1]) > int(newArr[x - 1][1]):
-                newNewArr.append(newArr[x])
-            else:
-                while position > 0 and int(newArr[position][1]) < int(newArr[position - 1][0]):
-                    newNewArr.append(newNewArr[position - 1])
-                    position-=1
-        else:
-            while position > 0 and int(newArr[position][0]) < int(newArr[position - 1][0]):
-                newNewArr.append(newNewArr[position - 1])
-                position-=1
-    
-    print(newNewArr)
+    for index in range(1, len(newArr)):
 
-    if 5 > 5:
-        print("true")
-    else:
-        print("false")
+        currentValueNum = int(newArr[index][0])
+        currentValue = newArr[index]
+        position = index
+
+        while position > 0 and int(newArr[position - 1][0]) > currentValueNum:
+            newArr[position] = newArr[position - 1]
+            position-=1
+
+        newArr[position] = currentValue    
+    
+    for q in range(0, len(newArr) - 1):
+        if (int(newArr[q + 1][0]) - int(newArr[q][1])) > 0:
+            totalTime = totalTime - (int(newArr[q + 1][0] - int(newArr[q][1])))
+        
+    print("The total time the lights have been on is " + str(totalTime) + " hours.")    
+
+    
