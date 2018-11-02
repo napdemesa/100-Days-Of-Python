@@ -30,29 +30,54 @@ if __name__ == "__main__":
             maxTime = j[1]
         totalTime = int(maxTime) - int(minTime)
     
-    for k in range(0, len(newArr)):
-        for p in range(k):
-            if p == (len(newArr) - 1):
-                if int(newArr[len(newArr) - 1][0]) < int(newArr[p][0]):
-                    temp = newArr[p]
-                    newArr[p] = newArr[len(lenArr) - 1]
-                    newArr[len(newArr) - 1] = temp
-                break    
+    #for k in range(0, len(newArr)):
+     #   for p in range(k):
+      #      if p == (len(newArr) - 1):
+       #         if int(newArr[len(newArr) - 1][0]) < int(newArr[p][0]):
+        #            temp = newArr[p]
+         #           newArr[p] = newArr[len(lenArr) - 1]
+          #          newArr[len(newArr) - 1] = temp
+           #     break    
 
-            if int(newArr[p][0]) > int(newArr[p + 1][0]):
-                temp = newArr[p]
-                newArr[p] = newArr[p + 1]
-                newArr[p + 1] = temp
+            #if int(newArr[p][0]) > int(newArr[p + 1][0]):
+             #   temp = newArr[p]
+              #  newArr[p] = newArr[p + 1]
+               # newArr[p + 1] = temp
     
-            if int(newArr[p][0]) == int(newArr[p + 1][0]):
-                if int(newArr[p][1]) > int(newArr[p + 1][1]):
-                    temp = newArr[p]
-                    newArr[p] = newArr[p + 1]
-                    newArr[p + 1] = temp
+   #         if int(newArr[p][0]) == int(newArr[p + 1][0]):
+    #            if int(newArr[p][1]) > int(newArr[p + 1][1]):
+     #               temp = newArr[p]
+      #              newArr[p] = newArr[p + 1]
+       #             newArr[p + 1] = temp
 
     print(newArr)
     print(maxTime + " maxTime")
     print(minTime + " minTime")
+    
+    newNewArr = []
+    print(arr)
+    for x in range(0, len(arr)):
+        if not newNewArr:
+            newNewArr.append(newArr[x])
+            print(newNewArr)
+            continue
+        print(newNewArr)
+        position = x
+        if int(newArr[x][0]) > int(newArr[x - 1][0]):
+            newNewArr.append(newArr[x])
+        elif int(newArr[x][0]) == int(newArr[x - 1][0]):
+            if int(newArr[x][1]) > int(newArr[x - 1][1]):
+                newNewArr.append(newArr[x])
+            else:
+                while position > 0 and int(newArr[position][1]) < int(newArr[position - 1][0]):
+                    newNewArr.append(newNewArr[position - 1])
+                    position-=1
+        else:
+            while position > 0 and int(newArr[position][0]) < int(newArr[position - 1][0]):
+                newNewArr.append(newNewArr[position - 1])
+                position-=1
+    
+    print(newNewArr)
 
     if 5 > 5:
         print("true")
