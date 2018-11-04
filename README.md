@@ -24,3 +24,5 @@ Day7: https://www.reddit.com/r/dailyprogrammer/comments/7qn07r/20180115_challeng
 Oh boy was this a challenge. I started off knowing what I wanted to do then when I tried to implement it it went horribly wrong and everything was extremely messy. I first wanted to sort the list of lists using bubble sort because I was too lazy to try to implement a more efficient algorithm. Then I tried to implement a sort by insertion algorithm and that also went bad. I ended up using insertion sort algorithm with the help of the internet, although at first I did try to implement it by looking at concept and thoery before looking up code for it and copying it.
 
 Day8: Spent time finishing day7 because I was annoyed I couldn't complete it, but ended up finishing it after a lot of obstacles!
+
+Day9: Starting to get into machine learning. Started out by learning the library scikit-learn and doing some small turotrials from the official site.
