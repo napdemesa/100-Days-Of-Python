@@ -52,14 +52,7 @@ def print_formatted(num):
                 hexidecimal = str(math.floor(x/16)) + str(x%16)
 
         print(str(x) + " " + str(octal) + " " + hexidecimal + " " + binary) 
-        dernary = num
 
-    while dernary>0:
-        binary = str(dernary%2) + binary
-        dernary = dernary//2
-        print(binary)
-        
-    print(binary)
 
 if __name__ == "__main__":    
     n = int(input())
